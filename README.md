@@ -5,11 +5,14 @@
 
 ## Установка
 
-  
+    pip install django
 
 ## Настройки
 
-
 1. 
 2.   
-3. 
+
+
+## Запуск
+
+    python manage.py runserver
