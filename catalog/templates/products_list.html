@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Food Box - Главная{% endblock %}
+{% block title %}Food Box - Каталог{% endblock %}
 
 {% block content %}
 {% load my_tags %}
@@ -13,7 +13,7 @@
             <img src="{{ product.image|media_filter }}" alt="{{ product.name }}" width="150px" height="150px">
             <div class="card-body">
                 <h3 class="card-title pricing-card-title">{{ product.price }} руб.</h3>
-                <p class="card-text">{{ product.description|truncatechars:100  }}</p>
+                <p class="card-text">{{ product.description }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <a href="#" class="btn btn-sm btn-outline-secondary">Просмотр</a>
@@ -25,3 +25,4 @@
     </div>
 {% endfor %}
 {% endblock %}
+
