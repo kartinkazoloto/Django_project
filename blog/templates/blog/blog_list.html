@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog List</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Блог</h1>
+        <a href="{% url 'blog:create' %}">Создать новую запись</a>
+        <ul>
+        {% for record in object_list %}
+            <li>
+                <a href="{% url 'blog:record_detail' record.pk %}">{{ record.name }}</a>
+                (Просмотров: {{ record.number_of_views }})
+            </li>
+        {% endfor %}
+        </ul>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog Record Delete</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+  <h1>Удалить запись "{{ object.title }}"?</h1>
+<form method="post">
+    {% csrf_token %}
+    <p>Вы уверены?</p>
+    <button type="submit">Да, удалить</button>
+    <a href="{% url 'blog:record_detail' object.pk %}">Отмена</a>
+</form>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
