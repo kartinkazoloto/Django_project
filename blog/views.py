@@ -50,7 +50,8 @@ class RecordUpdateView(UpdateView):
         'is_published'
     ]
     template_name = 'blog/record_form.html'
-    success_url =reverse_lazy('blog:record_detail')
+    success_url = '{% url "blog:record_detail" pk=object.pk %}'
+
 
 
 class RecordDeleteView(DeleteView):
