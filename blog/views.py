@@ -8,7 +8,6 @@ class HomeView(ListView):
     template_name = 'blog/home.html'
 
 
-
 class CreateRecord(CreateView):
     model = Record
     fields = [
@@ -24,7 +23,6 @@ class CreateRecord(CreateView):
 class RecordListView(ListView):
     model = Record
     template_name = 'blog/record_list.html'
-
 
     def get_queryset(self):
         return Record.objects.filter(is_published=True)
@@ -51,8 +49,10 @@ class RecordUpdateView(UpdateView):
         'is_published'
     ]
     template_name = 'blog/create.html'
-    def get_success_url(self):
-        return reverse_lazy('blog:record_detail', kwargs={'pk': self.object.pk})
+    # def get_success_url(self):
+    #     return reverse_lazy('blog:record_detail', kwargs={'pk': self.object.pk})
+
+    success_url = '{% url "blog:record_detail" pk=object.pk %}'
 
 
 class RecordDeleteView(DeleteView):
