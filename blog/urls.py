@@ -16,15 +16,17 @@ Including another URLconf
 """
 
 from django.urls import path
+
+from .apps import BlogConfig
 from .views import CreateRecord, HomeView, RecordDetailView, RecordListView, RecordDeleteView, RecordUpdateView
 
-app_name = 'blog'
+app_name = BlogConfig.name
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('create/', CreateRecord.as_view(), name='create'),
     path('blog_list/', RecordListView.as_view(), name='blog_list'),
-    path('record_detail/<int:record_id>/', RecordDetailView.as_view(), name='record_detail'),
-    path('record_detail/<int:record_id>/edit/', RecordUpdateView.as_view(), name='record_edit'),
-    path('record_detail/<int:record_id>/delete/', RecordDeleteView.as_view(), name='record_delete'),
+    path('record_detail/<int:pk>/', RecordDetailView.as_view(), name='record_detail'),
+    path('record_detail/<int:pk>/edit/', RecordUpdateView.as_view(), name='record_edit'),
+    path('record_detail/<int:pk>/delete/', RecordDeleteView.as_view(), name='record_delete'),
 ]

@@ -3,9 +3,10 @@ from django.views.generic import CreateView, DetailView, ListView, DeleteView, T
 from django.urls import reverse_lazy
 
 
-class HomeView(TemplateView):
+class HomeView(ListView):
     model = Record
     template_name = 'blog/home.html'
+
 
 
 class CreateRecord(CreateView):
@@ -49,8 +50,9 @@ class RecordUpdateView(UpdateView):
         'image',
         'is_published'
     ]
-    template_name = 'blog/record_form.html'
-    success_url =reverse_lazy('blog:record_detail')
+    template_name = 'blog/create.html'
+    def get_success_url(self):
+        return reverse_lazy('blog:record_detail', kwargs={'pk': self.object.pk})
 
 
 class RecordDeleteView(DeleteView):

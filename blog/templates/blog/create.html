@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog Record</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Blog - {% if object %}Редактирование записи{% else %}Создание записи{% endif %}{% endblock %}
+
+{% block content %}
+
     <h1>{% if object %}Редактирование записи{% else %}Создание записи{% endif %}</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Сохранить</button>
     </form>
-<script src="/static/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+{% endblock %}
