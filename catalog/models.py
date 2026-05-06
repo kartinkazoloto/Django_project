@@ -1,5 +1,3 @@
-from tabnanny import verbose
-
 from django.db import models
 
 class Category(models.Model):
@@ -19,7 +17,7 @@ class Product(models.Model):
     description = models.TextField(null=True, blank=True, verbose_name='описание')
     image = models.ImageField(upload_to='images/', verbose_name='изображение', blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', verbose_name='Категория')
-    price = models.IntegerField(default=0, verbose_name='Стоимость')
+    price = models.PositiveIntegerField(default=0, verbose_name='Стоимость')
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 

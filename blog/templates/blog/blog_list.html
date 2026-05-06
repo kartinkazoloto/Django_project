@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - Каталог{% endblock %}
+
+{% block content %}
+
+    <h1>Блог</h1>
+        <a href="{% url 'blog:create' %}">Создать новую запись</a>
+        <ul>
+        {% for record in object_list %}
+            <li>
+                <a href="{% url 'blog:record_detail' record.pk %}">{{ record.name }}</a>
+                Просмотров: {{ record.number_of_views }}
+            </li>
+        {% endfor %}
+        </ul>
+
+
+
+{% endblock %}

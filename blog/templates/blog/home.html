@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - Каталог{% endblock %}
+
+{% block buttons %}
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow" style="justify-content: center;">
+<a href="{% url 'blog:create' %}" class="btn btn-sm btn-outline-secondary">Создать</a>
+</div>
+{% endblock %}
+{% block content %}
+{% load my_tags %}
+{% for record in object_list %}
+    <div class="col">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">{{ record.name }}</h4>
+            </div>
+            <img src="{{ record.image|media_filter }}" alt="{{ record.name }}" width="150px" height="150px">
+            <div class="card-body">
+                <p class="card-text">{{ record.description|truncatechars:100  }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a href="{% url 'blog:record_detail' record.pk %}" class="btn btn-sm btn-outline-secondary">Просмотр</a>
+                        <a href="{% url 'blog:record_edit' record.pk %}" class="btn btn-sm btn-outline-secondary">Редактирование</a>
+                        <a href="{% url 'blog:record_delete' record.pk %}" class="btn btn-sm btn-outline-secondary">Удаление</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

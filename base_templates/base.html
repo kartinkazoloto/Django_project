@@ -5,10 +5,10 @@
 {% include 'menu.html' %}
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Food Box</h1>
-    <p class="lead">Food Box - это отличный магазин продуктов</p>
-</div>
 
+    <p class="lead">{% block title %}{% endblock %}</p>
+</div>
+{% block buttons %}{% endblock %}
 <div class="container">
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
@@ -17,6 +17,7 @@
             </div>
         </div>
     </div>
+
 
 
     {% include 'footer.html'%}
