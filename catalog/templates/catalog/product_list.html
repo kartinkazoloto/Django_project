@@ -4,6 +4,16 @@
 
 {% block content %}
 {% load my_tags %}
+
+<!-- Кнопка добавления товара -->
+<div class="col-12 mb-4">
+    <div class="d-flex justify-content-end">
+        <a href="{% url 'catalog:product_add' %}" class="btn btn-sm btn-outline-success">
+            + Добавить товар
+        </a>
+    </div>
+</div>
+
 {% for product in object_list %}
     <div class="col">
         <div class="card shadow-sm">
@@ -13,10 +23,10 @@
             <img src="{{ product.image|media_filter }}" alt="{{ product.name }}" width="150px" height="150px">
             <div class="card-body">
                 <h3 class="card-title pricing-card-title">{{ product.price }} руб.</h3>
-                <p class="card-text">{{ product.description }}</p>
+                <p class="card-text">{{ product.description|truncatechars:100 }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="#" class="btn btn-sm btn-outline-secondary">Просмотр</a>
+                        <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-sm btn-outline-secondary">Просмотр</a>
                         <button type="button" class="btn btn-sm btn-outline-secondary">Купить</button>
                     </div>
                 </div>
