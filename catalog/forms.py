@@ -3,29 +3,13 @@ import os
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.files.images import get_image_dimensions
+
+from config.settings import FORBIDDEN_WORDS, MAX_IMAGE_SIZE, ALLOWED_IMAGE_MIME_TYPES, ALLOWED_IMAGE_EXTENSIONS, \
+    MIN_IMAGE_WIDTH, MIN_IMAGE_HEIGHT, MAX_IMAGE_WIDTH, MAX_IMAGE_HEIGHT
 from .models import Product, Category
 
 
-# Список запрещенных слов (в нижнем регистре для сравнения)
-FORBIDDEN_WORDS = [
-    'казино',
-    'криптовалюта',
-    'крипта',
-    'биржа',
-    'дешево',
-    'бесплатно',
-    'обман',
-    'полиция',
-    'радар',
-]
-# Константы для валидации изображений
-ALLOWED_IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png']
-ALLOWED_IMAGE_MIME_TYPES = ['image/jpeg', 'image/png']
-MAX_IMAGE_SIZE = 5 * 1024 * 1024  # 5 МБ
-MAX_IMAGE_WIDTH = 1920
-MAX_IMAGE_HEIGHT = 1920
-MIN_IMAGE_WIDTH = 100
-MIN_IMAGE_HEIGHT = 100
+
 
 class ProductForm(forms.ModelForm):
     """Форма для создания/редактирования товара с валидацией изображений"""

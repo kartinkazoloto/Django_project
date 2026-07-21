@@ -130,3 +130,24 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     messages.SUCCESS: 'success',
 }
+
+# Список запрещенных слов (в нижнем регистре для сравнения)
+FORBIDDEN_WORDS = [
+    'казино',
+    'криптовалюта',
+    'крипта',
+    'биржа',
+    'дешево',
+    'бесплатно',
+    'обман',
+    'полиция',
+    'радар',
+]
+# Константы для валидации изображений
+ALLOWED_IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png']
+ALLOWED_IMAGE_MIME_TYPES = ['image/jpeg', 'image/png']
+MAX_IMAGE_SIZE = 5 * 1024 * 1024  # 5 МБ
+MAX_IMAGE_WIDTH = 1920
+MAX_IMAGE_HEIGHT = 1920
+MIN_IMAGE_WIDTH = 100
+MIN_IMAGE_HEIGHT = 100
