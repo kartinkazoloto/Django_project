@@ -1,6 +1,8 @@
 from django.db import models
 
+
 class Record(models.Model):
+
     name = models.CharField(max_length=150, verbose_name='заголовок')
     description = models.TextField(null=True, blank=True, verbose_name='содержимое')
     image = models.ImageField(upload_to='images/', verbose_name='превью', blank=True, null=True)
