@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'catalog',
     'blog',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -151,3 +152,14 @@ MAX_IMAGE_WIDTH = 1920
 MAX_IMAGE_HEIGHT = 1920
 MIN_IMAGE_WIDTH = 100
 MIN_IMAGE_HEIGHT = 100
+
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+DEFAULT_FROM_EMAIL = 'noreply@mysite.com'
+
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'catalog:home'
+LOGOUT_REDIRECT_URL = 'users:login'
