@@ -9,27 +9,24 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-import os
-from dotenv import load_dotenv
-from pathlib import Path
 
-load_dotenv(override=True)
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-APP_DIRS = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-h2ak1r37ws^##z)%^a3)o6(jtbnwj2txr)x55e+od#ds2g74ue'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if os.getenv('DEBUG') == 'True' else False
+DEBUG = True
 
 ALLOWED_HOSTS = []
+
 
 # Application definition
 
@@ -40,9 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'catalog',
-    'blog',
-    'users',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +54,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'base_templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,19 +68,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -106,60 +98,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-from django.contrib.messages import constants as messages
-MESSAGE_TAGS = {
-    messages.ERROR: 'danger',
-    messages.SUCCESS: 'success',
-}
-
-# Список запрещенных слов (в нижнем регистре для сравнения)
-FORBIDDEN_WORDS = [
-    'казино',
-    'криптовалюта',
-    'крипта',
-    'биржа',
-    'дешево',
-    'бесплатно',
-    'обман',
-    'полиция',
-    'радар',
-]
-# Константы для валидации изображений
-ALLOWED_IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png']
-ALLOWED_IMAGE_MIME_TYPES = ['image/jpeg', 'image/png']
-MAX_IMAGE_SIZE = 5 * 1024 * 1024  # 5 МБ
-MAX_IMAGE_WIDTH = 1920
-MAX_IMAGE_HEIGHT = 1920
-MIN_IMAGE_WIDTH = 100
-MIN_IMAGE_HEIGHT = 100
-
-
-AUTH_USER_MODEL = 'users.CustomUser'
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-DEFAULT_FROM_EMAIL = 'noreply@mysite.com'
-
-LOGIN_URL = 'users:login'
-LOGIN_REDIRECT_URL = 'catalog:home'
-LOGOUT_REDIRECT_URL = 'users:login'
