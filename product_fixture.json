@@ -1,0 +1,80 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Огурец",
+        "description": "Огурец среднеплодный",
+        "image": "",
+        "category": 5,
+        "price": 0,
+        "created_at": "2026-03-30",
+        "updated_at": "2026-03-30"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "name": "Яблоко",
+        "description": "Яблоко зеленое",
+        "image": "",
+        "category": 6,
+        "price": 0,
+        "created_at": "2026-03-30",
+        "updated_at": "2026-03-30"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+        "name": "Груша",
+        "description": "Груша",
+        "image": "",
+        "category": 6,
+        "price": 0,
+        "created_at": "2026-03-30",
+        "updated_at": "2026-03-30"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+        "name": "Лимонад",
+        "description": "Лимонад груша",
+        "image": "",
+        "category": 3,
+        "price": 0,
+        "created_at": "2026-03-30",
+        "updated_at": "2026-03-30"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+        "name": "Овсянка",
+        "description": "Овсянка",
+        "image": "",
+        "category": 7,
+        "price": 0,
+        "created_at": "2026-03-30",
+        "updated_at": "2026-03-30"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+        "name": "Макароны",
+        "description": "Макароны рожки",
+        "image": "",
+        "category": 7,
+        "price": 0,
+        "created_at": "2026-03-30",
+        "updated_at": "2026-03-30"
+    }
+}
+]

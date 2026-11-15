@@ -1,0 +1,42 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Напитки",
+        "description": "напитки"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+        "name": "Бакалея",
+        "description": "крупы, макароны"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+        "name": "Овощи",
+        "description": "огурцы, помидоры, зелень"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 6,
+    "fields": {
+        "name": "Фрукты",
+        "description": "яблоки, груши, апельсины"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 7,
+    "fields": {
+        "name": "Бакалея",
+        "description": "крупы, макароны"
+    }
+}
+]
