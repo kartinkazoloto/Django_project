@@ -7,11 +7,11 @@ from catalog.views import (HomeView, Contacts, ProductListView, ProductDetailVie
 app_name = CatalogConfig.name
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
-    path('contacts/', Contacts.as_view(), name='contacts'),
-    path('product_list/', ProductListView.as_view(), name='product_list'),
-    path('product_detail/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
-    path('product/add/', ProductCreateView.as_view(), name='product_add'),
-    path('product_detail/<int:pk>/edit/', ProductUpdateView.as_view(), name='product_edit'),
-    path('product_detail/<int:pk>/delete/', ProductDeleteView.as_view(), name='product_delete'),
+    path('', HomeView.as_view(), name='home'),                       # /catalog/
+    path('contacts/', Contacts.as_view(), name='contacts'),          # /catalog/contacts/
+    path('products/', ProductListView.as_view(), name='product_list'),  # /catalog/products/
+    path('products/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
+    path('products/add/', ProductCreateView.as_view(), name='product_add'),
+    path('products/<int:pk>/edit/', ProductUpdateView.as_view(), name='product_edit'),
+    path('products/<int:pk>/delete/', ProductDeleteView.as_view(), name='product_delete'),
 ]

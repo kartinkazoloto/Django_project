@@ -21,7 +21,6 @@ class Contacts(TemplateView):
 
 class ProductListView(ListView):
     """Список товаров — ОБЩЕДОСТУПЕН"""
-    model = Product
     template_name = 'catalog/product_list.html'
     context_object_name = 'products'
     paginate_by = 12
